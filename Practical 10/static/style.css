@@ -1,0 +1,7 @@
+body{font-family:Arial;background:#eef2f7;padding:30px;text-align:center}
+.container{max-width:550px;margin:auto;background:white;padding:25px;border-radius:12px}
+h1{color:#2457a7}
+.grid{display:grid;grid-template-columns:repeat(4,85px);gap:8px;justify-content:center;margin:25px}
+.cell{height:75px;background:#dce8ff;border-radius:7px;display:flex;flex-direction:column;justify-content:center}
+.cell strong{font-size:24px}.cell small{font-size:13px}
+.goal{background:#75c98b;color:white}.obstacle{background:#555;color:white}
