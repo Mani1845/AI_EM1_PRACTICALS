@@ -1,0 +1,5 @@
+body{font-family:Arial;background:#eef2f7;padding:30px;text-align:center}
+.container{max-width:550px;margin:auto;background:white;padding:25px;border-radius:12px}
+h1{color:#2457a7}.map{display:grid;grid-template-columns:repeat(2,120px);gap:10px;justify-content:center;margin:25px}
+.region{padding:35px;color:white;font-size:25px;font-weight:bold;border-radius:8px}
+p{font-size:17px}
