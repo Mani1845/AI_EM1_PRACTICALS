@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blocks World Planning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Blocks World Planning</h1>
+    <form method="POST">
+        <label>Initial State (example: A B C)</label>
+        <input type="text" name="initial" placeholder="A B C" required>
+        <label>Goal State (example: C B A)</label>
+        <input type="text" name="goal" placeholder="C B A" required>
+        <button type="submit">Generate Plan</button>
+    </form>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    {% if steps %}
+    <h2>Planning Steps</h2>
+    <ol>{% for step in steps %}<li>{{ step }}</li>{% endfor %}</ol>
+    {% endif %}
+</div>
+</body>
+</html>
