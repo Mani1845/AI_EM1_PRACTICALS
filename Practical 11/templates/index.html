@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forward Chaining</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Propositional Logic – Forward Chaining</h1>
+    <p>Select the initial facts:</p>
+    <form method="POST">
+        {% for fact in ["rain", "sprinkler_on", "cloudy", "traffic_busy"] %}
+        <label><input type="checkbox" name="facts" value="{{ fact }}"> {{ fact }}</label>
+        {% endfor %}
+        <button type="submit">Run Inference</button>
+    </form>
+    {% if facts %}
+    <h2>Inferred Facts</h2>
+    <ul>{% for fact in facts %}<li>{{ fact }}</li>{% endfor %}</ul>
+    <h2>Inference Steps</h2>
+    <ol>{% for step in steps %}<li>{{ step }}</li>{% endfor %}</ol>
+    {% endif %}
+</div>
+</body>
+</html>
