@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internet Expert System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Internet Troubleshooting Expert System</h1>
+    <form method="POST">
+        <label>Is the router powered on?</label>
+        <select name="power"><option value="yes">Yes</option><option value="no">No</option></select>
+        <label>Is Wi-Fi enabled on your device?</label>
+        <select name="wifi"><option value="yes">Yes</option><option value="no">No</option></select>
+        <label>Does another device connect to the internet?</label>
+        <select name="other"><option value="yes">Yes</option><option value="no">No</option></select>
+        <label>Is your internet working?</label>
+        <select name="internet"><option value="yes">Yes</option><option value="no">No</option></select>
+        <button type="submit">Diagnose Problem</button>
+    </form>
+    {% if result %}<div class="result"><h2>Diagnosis</h2><p>{{ result }}</p></div>{% endif %}
+</div>
+</body>
+</html>
