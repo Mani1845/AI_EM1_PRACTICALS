@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Value Iteration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Value Iteration – Grid World</h1>
+    <p>Goal: G | Obstacle: ■ | Arrows: Best Action</p>
+    <div class="grid">
+    {% for row in grid %}
+        {% for r, c, value, action in row %}
+        <div class="cell {% if action == 'G' %}goal{% elif action == '■' %}obstacle{% endif %}">
+            <strong>{{ action }}</strong>
+            <small>{{ value }}</small>
+        </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+    <h2>Value Function and Optimal Policy</h2>
+</div>
+</body>
+</html>
