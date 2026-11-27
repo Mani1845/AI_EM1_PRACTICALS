@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Tic-Tac-Toe AI</h1>
+    <h3>{{ message }}</h3>
+    <form method="POST">
+        <input type="hidden" name="board" value="{{ board|join('') }}">
+        <div class="board">
+        {% for cell in board %}
+            <button class="cell" type="submit" name="move" value="{{ loop.index0 }}"
+                {% if cell != " " or message != "Your turn (X)" %}disabled{% endif %}>
+                {{ cell }}
+            </button>
+        {% endfor %}
+        </div>
+    </form>
+    <a href="/reset">New Game</a>
+</div>
+</body>
+</html>
