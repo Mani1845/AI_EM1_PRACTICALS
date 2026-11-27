@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A* 8 Puzzle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>A* Search – 8 Puzzle</h1>
+    <form method="POST">
+        <p>Enter 0 for the blank space</p>
+        <div class="grid">
+            {% for i in range(9) %}
+            <input type="number" name="cell{{ i }}" min="0" max="8" value="{{ [1,2,3,4,5,6,7,0,8][i] }}" required>
+            {% endfor %}
+        </div>
+        <select name="heuristic">
+            <option value="manhattan">Manhattan Distance</option>
+            <option value="misplaced">Misplaced Tiles</option>
+        </select>
+        <button type="submit">Solve Puzzle</button>
+    </form>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    {% if path %}
+    <h2>Solution ({{ path|length - 1 }} moves)</h2>
+    {% for state in path %}
+    <div class="step">
+        <p>Step {{ loop.index0 }}</p>
+        <div class="smallgrid">
+        {% for n in state %}<span>{{ n if n != 0 else "" }}</span>{% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>
