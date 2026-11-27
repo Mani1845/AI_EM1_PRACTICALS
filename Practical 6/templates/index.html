@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Coloring CSP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Map Coloring using CSP</h1>
+    <p>Map coloring is solved using backtracking.</p>
+    {% if solution %}
+    <div class="map">
+        {% for region, color in solution.items() %}
+        <div class="region" style="background:{{ color }}">{{ region }}</div>
+        {% endfor %}
+    </div>
+    <h2>Solution</h2>
+    {% for region, color in solution.items() %}
+    <p>Region {{ region }}: {{ color }}</p>
+    {% endfor %}
+    {% else %}
+    <p>No solution found.</p>
+    {% endif %}
+</div>
+</body>
+</html>
